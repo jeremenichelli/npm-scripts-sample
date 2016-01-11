@@ -1,0 +1,52 @@
+{
+  "name": "npm-scripts-sample",
+  "title": "npm scripts sample project",
+  "description": "Sample project to show how npm scripts work",
+  "copyright": "2015",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint js/**/*.js",
+    "prejs:dev": "npm run lint",
+    "prejs:prod": "npm run lint",
+    "js:dev": "browserify js/app.js -o main.js --debug",
+    "js:prod": "browserify js/app.js | uglifyjs > main.js",
+    "less": "lessc less/app.less | cssmin > main.css",
+    "build:dev": "npm run less & npm run js:dev",
+    "build:prod": "npm run less & npm run js:prod",
+    "watch:js": "onchange './js/**/*.js' -- npm run js:dev",
+    "watch:less": "onchange './less/**/*.less' -- npm run less",
+    "watch": "npm run watch:less & npm run watch:js"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "cssmin": "^0.4.3",
+    "eslint": "^1.10.3",
+    "less": "^2.5.3",
+    "onchange": "^2.0.0",
+    "uglify-js": "^2.6.1"
+  },
+  "main": "index.html",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "cssmin": "^0.4.3",
+    "eslint": "^1.10.3",
+    "less": "^2.5.3",
+    "onchange": "^2.0.0",
+    "uglify-js": "^2.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremenichelli/npm-scripts-sample.git"
+  },
+  "keywords": [
+    "npm",
+    "scripts",
+    "sample"
+  ],
+  "author": "Jeremias Menichelli",
+  "bugs": {
+    "url": "https://github.com/jeremenichelli/npm-scripts-sample/issues"
+  },
+  "homepage": "https://github.com/jeremenichelli/npm-scripts-sample#readme"
+}
